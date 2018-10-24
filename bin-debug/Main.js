@@ -144,9 +144,17 @@ var Main = (function (_super) {
         var tx = new egret.TextField();
         tx.text = "I'm Jack, I will use Egret create a fantasy mobile game!";
         tx.size = 32;
+        tx.x = 20;
+        tx.y = 20;
+        tx.width = this.stage.stageWidth - 40;
+        tx.touchEnabled = true;
+        tx.addEventListener(egret.TouchEvent.TOUCH_TAP, this.touchHandler, this);
         this.addChild(tx);
+    };
+    Main.prototype.touchHandler = function (evt) {
+        var tx = evt.currentTarget;
+        tx.textColor = 0x00ff00;
     };
     return Main;
 }(eui.UILayer));
 __reflect(Main.prototype, "Main");
-//# sourceMappingURL=Main.js.map
